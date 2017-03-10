@@ -4,7 +4,8 @@
   <strong>Your Photo's Information</strong>
 </p>
 <p>
-<%= @kanji.comment %>
+<td><%= image_tag @kanji.image.url %></td>
+<td><%= @kanji.comment %></td>
 </p>
 
 <%= link_to 'Edit', edit_kanji_path(@kanji) %> |
