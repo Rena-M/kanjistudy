@@ -5,19 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @kanjis.each do |kanji| %>
-      <tr>
-        <td><%= kanji.user_id %></td>
-        <td><%= link_to 'Show', kanji %></td>
-        <td><%= link_to 'Edit', edit_kanji_path(kanji) %></td>
-        <td><%= link_to 'Destroy', kanji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @letters.each do |letter| %>
+      <%= letter.letter %>
     <% end %>
   </tbody>
 </table>

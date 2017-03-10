@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'kanji#index'
+  root 'kanjis#index'
   resources :kanjis
 end

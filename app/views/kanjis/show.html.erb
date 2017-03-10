@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @kanji.user_id %>
+  <strong>Your Photo's Information</strong>
 </p>
-
-
+<p>
+<%= @kanji.comment %>
+</p>
 
 <%= link_to 'Edit', edit_kanji_path(@kanji) %> |
 <%= link_to 'Back', kanjis_path %>

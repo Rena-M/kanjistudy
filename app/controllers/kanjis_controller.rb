@@ -5,6 +5,7 @@ class KanjisController < ApplicationController
   # GET /kanjis.json
   def index
     @kanjis = Kanji.all
+    @letters = Letter.all
   end
 
   # GET /kanjis/1
@@ -69,6 +70,6 @@ class KanjisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kanji_params
-      params.require(:kanji).permit(:user_id)
+      params.require(:kanji).permit(:comment)
     end
 end
