@@ -26,6 +26,7 @@ class KanjisController < ApplicationController
   # POST /kanjis.json
   def create
     @kanji = Kanji.new(kanji_params)
+    @kanji.word = GoogleCloudVision.new(@kanji.image.file.file).request
 
     respond_to do |format|
       if @kanji.save

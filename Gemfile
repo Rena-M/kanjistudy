@@ -47,3 +47,4 @@ end
 gem 'carrierwave'
 gem 'google-api-client'
 gem 'fog'
+gem 'pry'
