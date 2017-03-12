@@ -12,11 +12,13 @@
 
   <tbody>
     <% @letters.each do |letter| %>
-      <%= letter.letter %>
+      <%= link_to "#{letter.letter}", letter_path(letter.id) %>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= paginate(@letters) %>
 
 <%= link_to 'New Kanji', new_kanji_path %>

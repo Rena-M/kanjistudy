@@ -30,6 +30,12 @@ class Dejizo
     doc.elements.each('GetDicItemResult/Body/div/div/') {|i|
       @meaning = i.elements['div'].text
     }
+    if @pronunciation == nil
+      @pronunciation = "Sorry, not found."
+    end
+    if @meaning == nil
+      @meaning = "Sorry, not found."
+    end
     return {pronunciation: @pronunciation, meaning: @meaning}
   end
 end
