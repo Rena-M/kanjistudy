@@ -1,17 +1,15 @@
  class Scraping
 
   def self.letter_urls
-    # next_url = 0
-    next_url = 25
+    next_url = 0
     while true
       break if next_url > 2136
       get_letters("http://tangorin.com/dict.php?dict=kanji&s=joyo&offset=#{next_url}")
-      # if next_url == 0
-      #   next_url += 25
-      # else
-      #   next_url += 50
-      # end
-      next_url += 50
+      if next_url == 0
+        next_url += 25
+      else
+        next_url += 50
+      end
     end
   end
 
