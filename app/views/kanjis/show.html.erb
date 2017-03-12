@@ -3,11 +3,30 @@
 <p>
   <strong>Your Photo's Information</strong>
 </p>
-<p>
-<td><%= image_tag @kanji.image.url %></td>
-<td><%= @kanji.comment %></td>
-<td><%= @kanji.word %></td>
-</p>
+<div>
+<table>
+  <tr>
+    <th>image</th>
+    <td><%= image_tag @kanji.image.url %></td>
+  </tr>
+  <tr>
+    <th>word</th>
+    <td><%= @kanji.word %></td>
+  </tr>
+  <tr>
+    <th>prununciation</th>
+    <td><%= @kanji.pronunciation %></td>
+  </tr>
+  <tr>
+    <th>meaning</th>
+    <td><%= @kanji.meaning %></td>
+  </tr>
+  <tr>
+    <th>comment</th>
+    <td><%= @kanji.comment %></td>
+  </tr>
+</table>
+</div>
 
 <%= link_to 'Edit', edit_kanji_path(@kanji) %> |
 <%= link_to 'Back', kanjis_path %>

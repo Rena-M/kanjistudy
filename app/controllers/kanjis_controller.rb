@@ -27,6 +27,8 @@ class KanjisController < ApplicationController
   def create
     @kanji = Kanji.new(kanji_params)
     @kanji.word = GoogleCloudVision.new(@kanji.image.file.file).request
+    @kanji.update(Dejizo.new(@kanji.word).request)
+    @kanji.save
 
     respond_to do |format|
       if @kanji.save
