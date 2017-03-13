@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313035429) do
+ActiveRecord::Schema.define(version: 20170313041104) do
 
   create_table "kanji_letters", force: :cascade do |t|
     t.integer  "kanji_id",   limit: 4
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170313035429) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "nickname",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
