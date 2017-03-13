@@ -2,6 +2,7 @@ class LettersController < ApplicationController
   before_action :set_kanji, only: [:show]
 
   def show
+    @kanjis = @letter.kanjis
   end
 
   private

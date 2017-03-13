@@ -28,5 +28,48 @@
 </table>
 </div>
 
+<br>
+
+<div>
+<p>
+  <strong>Your Kanjis' Information</strong>
+</p>
+
+<% @letters.each do |letter| %>
+<h1>
+  <strong><%= letter.letter %></strong>
+</h1>
+<div>
+
+<table>
+  <tr>
+    <th>pronunciations</th>
+    <% letter.pronunciations.each do |pronunciation| %>
+    <td><%= pronunciation.en %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th></th>
+    <% letter.pronunciations.each do |pronunciation| %>
+    <td><%= pronunciation.ja %></td>
+    <% end %>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>meanings</th>
+    <% letter.meanings.each do |meaning| %>
+    <td><%= meaning.meaning %></td>
+    <% end %>
+  </tr>
+</table>
+
+<% end %>
+
+</div>
+</div>
+
+<br>
+
 <%= link_to 'Edit', edit_kanji_path(@kanji) %> |
 <%= link_to 'Back', kanjis_path %>

@@ -11,6 +11,7 @@ class KanjisController < ApplicationController
   # GET /kanjis/1
   # GET /kanjis/1.json
   def show
+    @letters = @kanji.letters
   end
 
   # GET /kanjis/new
@@ -29,6 +30,16 @@ class KanjisController < ApplicationController
     @kanji.word = GoogleCloudVision.new(@kanji.image.file.file).request
     @kanji.update(Dejizo.new(@kanji.word).request)
     @kanji.save
+
+    num = @kanji.word.length - 1
+    while true
+      break if num == 0
+      if (letters = Letter.where(letter: @kanji.word[@kanji.word.length - 1 - num])).exists?
+        @letter = letters.first
+        KanjiLetter.create(kanji_id: @kanji.id, letter_id: @letter.id)
+      end
+      num -= 1
+    end
 
     respond_to do |format|
       if @kanji.save

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312093226) do
+ActiveRecord::Schema.define(version: 20170313015527) do
+
+  create_table "kanji_letters", force: :cascade do |t|
+    t.integer  "kanji_id",   limit: 4
+    t.integer  "letter_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "kanji_letters", ["kanji_id"], name: "index_kanji_letters_on_kanji_id", using: :btree
+  add_index "kanji_letters", ["letter_id"], name: "index_kanji_letters_on_letter_id", using: :btree
 
   create_table "kanjis", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -45,4 +55,6 @@ ActiveRecord::Schema.define(version: 20170312093226) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "kanji_letters", "kanjis"
+  add_foreign_key "kanji_letters", "letters"
 end

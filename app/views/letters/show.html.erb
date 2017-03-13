@@ -29,4 +29,32 @@
 
 <br>
 
+<% @kanjis.each do |kanji| %>
+<table>
+  <tr>
+    <th>image</th>
+    <td><%= image_tag kanji.image.url %></td>
+  </tr>
+  <tr>
+    <th>word</th>
+    <td><%= kanji.word %></td>
+  </tr>
+  <tr>
+    <th>pronunciation</th>
+    <td><%= kanji.pronunciation %></td>
+  </tr>
+  <tr>
+    <th>meaning</th>
+    <td><%= kanji.meaning %></td>
+  </tr>
+  <tr>
+    <th>comment</th>
+    <td><%= kanji.comment %></td>
+  </tr>
+</table>
+<br>
+<% end %>
+
+<br>
+
 <%= link_to 'Back', kanjis_path %>
