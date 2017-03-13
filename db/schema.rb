@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313041104) do
+ActiveRecord::Schema.define(version: 20170313101222) do
 
   create_table "kanji_letters", force: :cascade do |t|
     t.integer  "kanji_id",   limit: 4
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20170313041104) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "image",         limit: 255
+    t.time     "taken_at"
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
   end
 
   create_table "letters", force: :cascade do |t|

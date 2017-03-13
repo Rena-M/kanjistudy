@@ -40,6 +40,12 @@ class KanjisController < ApplicationController
     @kanji.user_id = current_user.id
     @kanji.save
 
+    @image = Exif.new(params[:kanji][:image].tempfile)
+    @kanji.taken_at = @image[:taken_at]
+    @kanji.latitude = (@image[:latitude].to_f / 10000)
+    @kanji.longitude = (@image[:longitude].to_f / 100)
+    @kanji.save
+
     num = @kanji.word.length - 1
     while true
       break if num == 0
