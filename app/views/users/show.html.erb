@@ -1,0 +1,10 @@
+  <div class="contents row" >
+    <p><%= @nickname %>さんの投稿一覧</p>
+    <% @kanjis.each do |kanji| %>
+      <div class="content_post">
+        <%= link_to image_tag(kanji.image.url), kanji_path(kanji.id) %>
+        <%= image_tag 'camera.png', :size => '30x20' %>
+      </div>
+    <% end %>
+    <%= paginate(@kanjis) %>
+  </div>

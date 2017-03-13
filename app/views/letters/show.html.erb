@@ -39,6 +39,9 @@
   <tr>
     <th>image</th>
     <td><%= image_tag kanji.image.url %></td>
+    <% if kanji.user == current_user %>
+      <td><%= image_tag 'camera.png', :size => '30x20' %></td>
+    <% end %>
   </tr>
   <tr>
     <th>word</th>
