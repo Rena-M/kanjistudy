@@ -6,6 +6,14 @@ class KanjisController < ApplicationController
   # GET /kanjis.json
   def index
     @letters = Letter.all.page(params[:page]).per(20)
+    @lists = []
+    if user_signed_in?
+      current_user.kanjis.each do |kanji|
+        kanji.letters.each do |letter|
+          @lists << letter.id
+        end
+      end
+    end
   end
 
   # GET /kanjis/1
