@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <th>taken at</th>
-    <td><%= @kanji.taken_at %></td>
+    <td><%= @kanji.taken_at.localtime.strftime("%Y/%m/%d %H:%M") %></td>
   </tr>
 </table>
 </div>
