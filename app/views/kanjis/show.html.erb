@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Your Photo's Information</strong>
+  <strong>Photo's Information</strong>
 </p>
 <div>
 <table>
   <tr>
     <th>image</th>
-    <td><%= image_tag @kanji.image.url %></td>
+    <td><%= image_tag @kanji.image.url , :size => '150x150' %></td>
   </tr>
   <tr>
     <th>word</th>
@@ -26,8 +26,10 @@
     <td><%= @kanji.comment %></td>
   </tr>
   <tr>
+    <% if @kanji.taken_at %>
     <th>taken at</th>
     <td><%= @kanji.taken_at.localtime.strftime("%Y/%m/%d %H:%M") %></td>
+    <% end %>
   </tr>
 </table>
 </div>
@@ -36,12 +38,12 @@
 
 <div>
 <p>
-  <strong>Your Kanjis' Information</strong>
+  <strong>Kanjis' Information</strong>
 </p>
 
 <% @letters.each do |letter| %>
 <h1>
-  <strong><%= letter.letter %></strong>
+  <strong><%= link_to "#{letter.letter}", letter_path(letter.id) %></strong>
 </h1>
 <div>
 
@@ -75,5 +77,4 @@
 
 <br>
 
-<%= link_to 'Edit', edit_kanji_path(@kanji) %> |
 <%= link_to 'Back', kanjis_path %>

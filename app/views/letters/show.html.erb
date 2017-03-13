@@ -38,7 +38,7 @@
 <table>
   <tr>
     <th>image</th>
-    <td><%= image_tag kanji.image.url %></td>
+    <td><%= link_to image_tag(kanji.image.url, {:size => '100x100'}), kanji_path(kanji.id) %></td>
     <% if kanji.user == current_user %>
       <td><%= image_tag 'camera.png', :size => '30x20' %></td>
     <% end %>

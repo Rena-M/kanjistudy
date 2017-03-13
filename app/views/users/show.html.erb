@@ -2,7 +2,7 @@
     <p><%= @nickname %>さんの投稿一覧</p>
     <% @kanjis.each do |kanji| %>
       <div class="content_post">
-        <%= link_to image_tag(kanji.image.url), kanji_path(kanji.id) %>
+        <%= link_to image_tag(kanji.image.url, { :size => '100x100' }), kanji_path(kanji.id) %>
         <%= image_tag 'camera.png', :size => '30x20' %>
         <%= link_to 'delete', "/kanjis/#{kanji.id}", method: :delete %>
       </div>
