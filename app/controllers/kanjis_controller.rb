@@ -29,6 +29,7 @@ class KanjisController < ApplicationController
     @kanji = Kanji.new(kanji_params)
     @kanji.word = GoogleCloudVision.new(@kanji.image.file.file).request
     @kanji.update(Dejizo.new(@kanji.word).request)
+    @kanji.user_id = current_user.id
     @kanji.save
 
     num = @kanji.word.length - 1

@@ -21,7 +21,8 @@
   <div>
     <%= link_to "#{letter.letter}", letter_path(letter.id) %>
     <% if letter.kanjis.order('created_at DESC').exists? %>
-      <%= link_to image_tag(letter.kanjis.order('created_at DESC').first.image.url), letter_path(letter.id) %>
+      <%= link_to image_tag((first = letter.kanjis.order('created_at DESC').first).image.url), letter_path(letter.id) %>
+      <%= "@#{first.user.nickname}" %>
     <% else %>
       <%= link_to image_tag('question.png', { :size => '60x60' }), letter_path(letter.id) %>
     <% end %>

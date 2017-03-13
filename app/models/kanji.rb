@@ -5,4 +5,6 @@ class Kanji < ActiveRecord::Base
   has_many :letters, :through => :kanji_letters
 
   accepts_nested_attributes_for :kanji_letters, allow_destroy: true
+
+  belongs_to :user
 end
