@@ -2,20 +2,17 @@
 
 <h1>Listing Kanjis</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @letters.each do |letter| %>
-      <%= link_to "#{letter.letter}", letter_path(letter.id) %>
+<% @letters.each do |letter| %>
+  <div>
+    <%= link_to "#{letter.letter}", letter_path(letter.id) %>
+    <% if letter.kanjis.order('created_at DESC').exists? %>
+      <%= link_to image_tag(letter.kanjis.order('created_at DESC').first.image.url), letter_path(letter.id) %>
+    <% else %>
+      <%= link_to image_tag('question.png', { :size => '60x60' }), letter_path(letter.id) %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
+
 
 <br>
 

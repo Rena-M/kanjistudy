@@ -4,7 +4,6 @@ class KanjisController < ApplicationController
   # GET /kanjis
   # GET /kanjis.json
   def index
-    @kanjis = Kanji.all
     @letters = Letter.all.page(params[:page]).per(20)
   end
 
