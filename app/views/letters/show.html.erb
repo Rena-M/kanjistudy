@@ -1,6 +1,11 @@
 <h1>
   <strong><%= @letter.letter %></strong>
 </h1>
+<% if user_signed_in? && !@lists.empty? %>
+  <% if @lists.include?(@letter.id) %>
+    <%= image_tag 'camera.png', :size => '30x20' %>
+  <% end %>
+<% end %>
 <div>
 
 <table>

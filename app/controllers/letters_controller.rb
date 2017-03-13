@@ -3,6 +3,14 @@ class LettersController < ApplicationController
 
   def show
     @kanjis = @letter.kanjis
+    @lists = []
+    if user_signed_in?
+      current_user.kanjis.each do |kanji|
+        kanji.letters.each do |letter|
+          @lists << letter.id
+        end
+      end
+    end
   end
 
   private
