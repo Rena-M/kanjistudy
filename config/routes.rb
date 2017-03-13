@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :kanjis
   resources :letters, only: [:show]
   get   'users/:id'   =>  'users#show'
+  delete  'kanjis/:id'  => 'kanjis#destroy'
 end

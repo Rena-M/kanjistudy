@@ -66,7 +66,7 @@ class KanjisController < ApplicationController
   def update
     respond_to do |format|
       if @kanji.update(kanji_params)
-        format.html { redirect_to @kanji, notice: 'Kanji was successfully updated.' }
+        format.html { redirect_to @kanji, notice: 'Your photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @kanji }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class KanjisController < ApplicationController
   def destroy
     @kanji.destroy
     respond_to do |format|
-      format.html { redirect_to kanjis_url, notice: 'Kanji was successfully destroyed.' }
+      format.html { redirect_to kanjis_url, notice: 'Your photo was successfully deleted.' }
       format.json { head :no_content }
     end
   end
